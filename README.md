@@ -35,7 +35,7 @@ Values are 2025 production at the 2025 average Brent price ($69.14/bbl). They sh
 3. **Platforms share the threat.** On **581** occasions, the same iceberg came within 50 km of both Hebron and Terra Nova on the same day. The two are 8.2 km apart, and Terra Nova can sail away but Hebron can't.
 4. **Towing works, but not every time.** In past tow operations (Rudkin et al., 2005), 86% changed the iceberg's course and 99% avoided downtime, but **22% of tow ropes slipped**.
 5. **Many icebergs show up late.** Of the **1,555** icebergs that came within 50 km of a platform, **40.6%** had no earlier sighting in the log: their first record was already their closest point. The median time from first record to closest point was 38.3 hours.
-6. **Satellites are filling the gap.** Most sightings still come from radar and visual watch (83.4%). Radar satellites, which see through fog and cloud, rose from almost none before 2017 to 13.6% of sightings in 2021.
+6. **Satellites are filling the gap.** Most sightings still come from radar and visual watch (83.4%). Radar satellites, which see through fog and cloud, rose from almost none before 2017 to 13.6% of sightings in 2020.
 7. **Production held in the extreme year.** In spring 2014 (March–June), output averaged 225.8K bbl/d, compared with 211.5K bbl/d for the rest of the year. The low point (153.6K bbl/d in August) came from planned maintenance, not ice.
 
 ## Recommendation: be ready by March 1, decide on March 31
@@ -93,12 +93,26 @@ The Power BI report has five pages. Page 1 is shown at the top of this README.
 ![Dashboard page 5: Operating Plan](images/5-operating-plan.png)
 </details>
 
+## Data sources
+
+All data came from the competition's case data pack. The organisers prepared the files from these sources:
+
+| Data | Years | Used for | Source |
+|---|---|---|---|
+| Monthly count of icebergs drifting south of 48°N | 1900–2021 | Long-run history, monthly pattern, March 31 rule | International Ice Patrol, [IIP Count of Icebergs South of 48 Degrees North](https://nsidc.org/data/g10028) (NSIDC) |
+| Iceberg sightings near the platforms, with position, size, shape and detection method | 2002–2020 | Close approaches, shared threats, detection | International Ice Patrol, [IIP Iceberg Sightings Database](https://nsidc.org/data/g00807) (NSIDC, [doi:10.7265/N56Q1V5R](https://doi.org/10.7265/N56Q1V5R)) |
+| Oil production by field (yearly) and for the whole offshore area (monthly) | 2002–2025 | Daily output and value, 2014 production | Canada-Newfoundland and Labrador Offshore Energy Regulator (C-NLOER, formerly C-NLOPB), [production statistics](https://www.cnlopb.ca/information/statistics/) |
+| Brent crude annual average price | 2002–2026 | Value of one day's production | Prepared by the organisers |
+| Platform locations, platform type and first-oil dates | — | Distances between platforms, which platforms can disconnect | Prepared by the organisers |
+| FPSO iceberg response guide and example disconnect timeline | — | Page 2 response timeline | Prepared by the organisers |
+| Outcomes of past iceberg tows | About 30 years, up to 2005 | How often tows work | Rudkin, P., Young, C., Barron Jr., P. & Timco, G. (2005). [*Analysis and results of 30 years of iceberg management*](https://openpolar.no/Record/ftnrccanada:oai:cisti-icist.nrc-cnrc.ca:cistinparc:12327552). |
+
+The raw data files aren't included in this repo. For anything the pack didn't credit by name, the source shown is the public dataset the file matches.
+
 ## Method
 
-- **Data:** the case data pack from the organisers. It includes International Ice Patrol counts of icebergs crossing 48°N (1900–2021), individual iceberg sightings, platform locations, monthly production and oil prices. The raw data isn't included in this repo.
 - **Reference years:** from the production era (1997–2021), we picked a quiet year (2006), a median year (2012) and an extreme year (2014).
 - **Close approach:** each unique iceberg's nearest recorded point to a platform, counted when it was within 50 km.
-- **Tow outcomes:** taken from Rudkin et al. (2005), as given in the case pack.
 - **Cleaning:** done in Python, with every data change written down so that each count, join and assumption could be defended.
 - **Dashboard:** the cleaned data feeds the Power BI report.
 
