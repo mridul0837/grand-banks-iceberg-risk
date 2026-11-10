@@ -114,7 +114,7 @@ The Power BI report has five pages. Page 1 is shown at the top of this README.
 
 ## Team
 
-This was a team project by Team 5. I'm grateful to my collaborators:
+This was a team project. I'm grateful to my collaborators:
 
 - **Varvara Korotnytska**
 - **Mitchell Delaney**
