@@ -2,52 +2,103 @@
 
 **Ready by March: planning for both quiet and extreme iceberg years at Newfoundland's four offshore oil platforms.**
 
-Team 5's entry for the CPA DnA Case Competition 2026 (October 24–25, 2026). We used historical iceberg sightings and production data to show how Hibernia, Hebron, Terra Nova and SeaRose spot, tow and avoid icebergs, and we built a simple March 31 rule for planning each spring season.
+Team 5's entry for the CPA DnA Case Competition 2026 (October 24–25, 2026). We used historical iceberg sightings and production data to show how Hibernia, Hebron, Terra Nova and White Rose spot, tow and avoid icebergs, and we built a simple March 31 rule for planning each spring season.
 
 **Tools:** Python (Jupyter) for data cleaning and analysis · Power BI for the dashboard · PowerPoint for the presentation
+
+![Dashboard page 1: Industry Iceberg Exposure](images/1-iceberg-exposure.png)
 
 ---
 
 ## The question
 
-The number of icebergs that drift onto the Grand Banks changes a lot from year to year. Some years see only a few, and others see well over a thousand. How should the four offshore platforms prepare when they don't know in advance which kind of year is coming?
+The number of icebergs that drift south past 48°N changes a lot from year to year. Since production began in 1997, it has ranged from **0** (2006) to **1,546** (2014), with a median of **499** (2012). How should the four platforms prepare when they don't know in advance which kind of year is coming?
 
 ## Two kinds of platform
 
-| Platform type | Fields | Share of daily oil | Defence against icebergs |
-|---|---|---|---|
-| Fixed concrete (GBS) | Hibernia, Hebron | **86.85%** (~$14.4M/day) | Can't move. They have to spot icebergs early and tow them away. |
-| Floating ship (FPSO) | Terra Nova, SeaRose | **13.15%** (~$2.2M/day) | Can disconnect from the wells and sail away, on a timed countdown. |
+| Field | Platform type | Can it move away? | Barrels/day (2025) | One day's value |
+|---|---|---|---:|---:|
+| Hebron | Fixed concrete (GBS) | No | 137,714 | $9.52M |
+| Hibernia | Fixed concrete (GBS) | No | 70,711 | $4.89M |
+| Terra Nova | Floating ship (FPSO) | Yes | 22,050 | $1.52M |
+| White Rose + North Amethyst | Floating ship (SeaRose FPSO) | Yes | 9,509 | $0.66M |
+| **Total** | | | **239,984** | **$16.59M** |
 
-Daily values use 2025 production at the 2025 average Brent price ($69.14/bbl).
+The two fixed platforms carry **86.85%** of output. They can't move, so they have to spot icebergs early and tow them away. The floating ships can disconnect from the wells and sail off, on a timed countdown.
+
+Values are 2025 production at the 2025 average Brent price ($69.14/bbl). They show gross revenue, not profit.
 
 ## Key findings
 
-1. **More icebergs in the ocean doesn't mean more near the rigs.** The extreme year (2014, 1,546 icebergs in the region) had **111** close calls within 50 km. The median year (2012, 499 in the region) had **154**.
-2. **Danger near the rigs peaks in April**, one month before the peak of icebergs crossing 48°N.
-3. **Platforms share the threat.** On **581** occasions, the same iceberg threatened Hebron and Terra Nova on the same day. The two are 8.2 km apart, and Terra Nova can sail away but Hebron can't.
-4. **Towing works, but not every time.** About 22% of tow ropes slip off. Towing still deflects the iceberg 86% of the time, and 99% of tows avoid downtime.
-5. **Many icebergs show up late.** Of the **1,555** icebergs that came within 50 km of a platform, **40.6%** had no earlier sighting in the log: their first record was already their closest point. The typical tracking time from first sighting to closest point was 38.3 hours.
-6. **Satellites are filling the gap.** Radar satellites, which see through fog and cloud, spotted 13.6% of icebergs in 2021, up from almost none before 2017.
-7. **Production held in the extreme year.** In 2014, spring output averaged 225.8K bbl/d, compared with 211.5K bbl/d for the rest of the year. The low point (153.6K bbl/d in August) came from planned maintenance, not ice.
+1. **More icebergs in the ocean doesn't mean more near the rigs.** The extreme year (2014) had **111** icebergs come within 50 km of a platform. The median year (2012) had **154**.
+2. **Danger near the rigs peaks in April**, when 45% of close approaches happen. That's one month before the peak of icebergs crossing 48°N in May.
+3. **Platforms share the threat.** On **581** occasions, the same iceberg came within 50 km of both Hebron and Terra Nova on the same day. The two are 8.2 km apart, and Terra Nova can sail away but Hebron can't.
+4. **Towing works, but not every time.** In past tow operations (Rudkin et al., 2005), 86% changed the iceberg's course and 99% avoided downtime, but **22% of tow ropes slipped**.
+5. **Many icebergs show up late.** Of the **1,555** icebergs that came within 50 km of a platform, **40.6%** had no earlier sighting in the log: their first record was already their closest point. The median time from first record to closest point was 38.3 hours.
+6. **Satellites are filling the gap.** Most sightings still come from radar and visual watch (83.4%). Radar satellites, which see through fog and cloud, rose from almost none before 2017 to 13.6% of sightings in 2021.
+7. **Production held in the extreme year.** In spring 2014 (March–June), output averaged 225.8K bbl/d, compared with 211.5K bbl/d for the rest of the year. The low point (153.6K bbl/d in August) came from planned maintenance, not ice.
 
-## Recommendation: decide on March 31
+## Recommendation: be ready by March 1, decide on March 31
 
-On March 31, count the icebergs that have crossed 48°N and choose the response for the spring season:
+At the end of March, count the icebergs that have crossed 48°N and choose the plan for the season. Past years show how well that early count predicts the full season:
 
-| Year type | Icebergs past 48°N | Response |
+| Signal at end of March | What past years show | Response |
 |---|---|---|
-| Quiet | fewer than 10 | Share one tracking map and one support vessel. |
-| Uncertain | 10–199 | Keep surveillance flights and tow vessels on standby. |
-| Extreme | 200+ | Coordinate radar-satellite monitoring and flights, and pool support vessels. |
+| **Quiet:** fewer than 10 icebergs | 9 such years, none above 330 for the whole season | One shared iceberg map, baseline spotter flights and one shared standby ship for all four platforms. |
+| **Uncertain:** 10–199 icebergs | 9 such years, ending anywhere from 89 to 1,380 | Normal setup, with extra ships and flights on standby. |
+| **Extreme:** 200+ icebergs | 7 such years, every one ending at 687 or more | Switch to the extreme-year plan from April. Book flights and satellite imagery together, share towing ships with the fixed platforms served first, and alert Hebron and Terra Nova together. |
 
-In every type of year, the four platforms share tracking and vessels, and each platform's Offshore Installation Manager (OIM) keeps the final say on disconnecting.
+Rules that apply in every year:
+
+- **Never wait on a tow.** The floating platforms should start preparing to disconnect as soon as an iceberg enters the middle alert zone, even while a tow is under way.
+- **Share, but keep the final call local.** All four platforms share one iceberg map, flights and a vessel pool. Each platform's Offshore Installation Manager (OIM) alone decides whether to disconnect.
+- **Split the work three ways:**
+  - Each platform keeps its own 24/7 iceberg watch and alert zones in-house.
+  - Spotter flights, towing vessels and satellite imagery are hired on seasonal contracts.
+  - The four operators run one shared tracking system, buy flights and satellite imagery together, and share a vessel fleet for heavy years.
+
+## Dashboard tour
+
+The Power BI report has five pages. Page 1 is shown at the top of this README.
+
+| Page | What it shows |
+|---|---|
+| 1. Industry Iceberg Exposure | 122 years of iceberg counts, the monthly pattern, close approaches per platform, and the distances between platforms. |
+| 2. Responding to an Iceberg | A sample hour-by-hour response, how often tows work, and who makes each decision. |
+| 3. Iceberg Detection | How icebergs are spotted, how much warning the log gives, and the rise of satellite sightings. |
+| 4. Production Consequences | Daily output and value per field, what each platform loses per day off station, and 2014 month by month. |
+| 5. Operating Plan | The March 31 signal and the quiet-year and extreme-year plans for operators and for the shared working group. |
+
+<details>
+<summary><b>Page 2: Responding to an Iceberg</b></summary>
+
+![Dashboard page 2: Responding to an Iceberg](images/2-responding-to-an-iceberg.png)
+</details>
+
+<details>
+<summary><b>Page 3: Iceberg Detection</b></summary>
+
+![Dashboard page 3: Iceberg Detection](images/3-iceberg-detection.png)
+</details>
+
+<details>
+<summary><b>Page 4: Production Consequences</b></summary>
+
+![Dashboard page 4: Production Consequences](images/4-production-consequences.png)
+</details>
+
+<details>
+<summary><b>Page 5: Operating Plan</b></summary>
+
+![Dashboard page 5: Operating Plan](images/5-operating-plan.png)
+</details>
 
 ## Method
 
-- **Data:** the case data pack from the organisers, covering iceberg sightings, platform locations, production and oil prices. The raw data isn't included in this repo.
-- **Reference years:** from the 1997–2021 record of icebergs crossing 48°N, we picked a quiet year (2006), a median year (2012) and an extreme year (2014).
-- **Close call:** an iceberg sighting within 50 km of a platform.
+- **Data:** the case data pack from the organisers. It includes International Ice Patrol counts of icebergs crossing 48°N (1900–2021), individual iceberg sightings, platform locations, monthly production and oil prices. The raw data isn't included in this repo.
+- **Reference years:** from the production era (1997–2021), we picked a quiet year (2006), a median year (2012) and an extreme year (2014).
+- **Close approach:** each unique iceberg's nearest recorded point to a platform, counted when it was within 50 km.
+- **Tow outcomes:** taken from Rudkin et al. (2005), as given in the case pack.
 - **Cleaning:** done in Python, with every data change written down so that each count, join and assumption could be defended.
 - **Dashboard:** the cleaned data feeds the Power BI report.
 
@@ -55,9 +106,11 @@ In every type of year, the four platforms share tracking and vessels, and each p
 
 | File | What it is |
 |---|---|
-| [`iceberg-risk-dashboard.pbix`](iceberg-risk-dashboard.pbix) | Power BI dashboard. Open it with [Power BI Desktop](https://www.microsoft.com/power-platform/products/power-bi/desktop), which is free on Windows. |
+| [`iceberg-risk-dashboard.pdf`](iceberg-risk-dashboard.pdf) | All five dashboard pages as a PDF. You can view it right on GitHub. |
+| [`iceberg-risk-dashboard.pbix`](iceberg-risk-dashboard.pbix) | The interactive Power BI file. Open it with [Power BI Desktop](https://www.microsoft.com/power-platform/products/power-bi/desktop), which is free on Windows. |
 | [`iceberg-risk-slides.pdf`](iceberg-risk-slides.pdf) | Presentation slides. You can view these right on GitHub. |
 | [`iceberg-risk-slides.pptx`](iceberg-risk-slides.pptx) | The same slides as an editable PowerPoint file. |
+| [`images/`](images/) | Each dashboard page as an image, used in this README. |
 
 ## Team
 
